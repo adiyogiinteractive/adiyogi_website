@@ -121,12 +121,12 @@ function composeEmail(recipient, subject, body) {
   const mailtoUrl = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   
   // Option 1: Set window location (may navigate away from current page)
-  //window.location.href = mailtoUrl;
+  window.location.href = mailtoUrl;
 
   // Option 2: Dynamically create and click a link (keeps current page open)
-  var mail = document.createElement("a");
-  mail.href = mailtoUrl;
-  mail.click();
+  //var mail = document.createElement("a");
+  //mail.href = mailtoUrl;
+  //mail.click();
 }
 
 
