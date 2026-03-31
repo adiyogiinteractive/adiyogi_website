@@ -106,11 +106,11 @@ document.getElementById('submit').addEventListener('click', function(event) {
       //getLinkWhastapp(number, message);
       getLinkWhastapp("919427254481", "Hello, This is just a testing whatsapp.");
     }
-    //else
-    //{
-    //  // composeEmail(recipient, subject, body);
-    //  composeEmail("dhavalraval86@gmail.com", "Testing", "Hello, This is just a testing mail.");
-    //}
+    // else
+    // {
+    //   // composeEmail(recipient, subject, body);
+    //   composeEmail("dhavalraval86@gmail.com", "Testing", "Hello, This is just a testing mail.");
+    // }
     //alert('Button clicked, but default action was stopped!');
     // Add your custom JavaScript logic here
 });
@@ -124,9 +124,9 @@ function composeEmail(recipient, subject, body) {
   window.location.href = mailtoUrl;
 
   // Option 2: Dynamically create and click a link (keeps current page open)
-  //var mail = document.createElement("a");
-  //mail.href = mailtoUrl;
-  //mail.click();
+  // var mail = document.createElement("a");
+  // mail.href = mailtoUrl;
+  // mail.click();
 }
 
 
@@ -138,4 +138,23 @@ function getLinkWhastapp(number, message) {
      + encodeURIComponent(message)
 
   return url
+}
+
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    //event.preventDefault(); // required and important
+    fetch(event.action, {
+        method: 'POST',
+        body: new FormData(document.getElementById('contactForm')),
+        mode: 'no-cors' // required and important
+    }).then(() => {
+        alert("Form submission is confirmed.");
+        clearFormFields();
+    }).catch((error) => {
+        alert("There was an error submitting form.");
+    });
+});
+
+function clearFormFields(){
+  document.getElementById("contactForm").reset();
 }
