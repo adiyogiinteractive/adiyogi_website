@@ -101,16 +101,16 @@ document.getElementById('submit').addEventListener('click', function(event) {
     const platform = navigator.userAgent;
     console.log(isMobile);
     console.log(platform);
-    if(platform.mobile)
+    //if(platform.mobile)
     {
       //getLinkWhastapp(number, message);
       getLinkWhastapp("919427254481", "Hello, This is just a testing whatsapp.");
     }
-    else
-    {
-      // composeEmail(recipient, subject, body);
-      composeEmail("dhavalraval86@gmail.com", "Testing", "Hello, This is just a testing mail.");
-    }
+    //else
+    //{
+    //  // composeEmail(recipient, subject, body);
+    //  composeEmail("dhavalraval86@gmail.com", "Testing", "Hello, This is just a testing mail.");
+    //}
     //alert('Button clicked, but default action was stopped!');
     // Add your custom JavaScript logic here
 });
