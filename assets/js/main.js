@@ -96,48 +96,18 @@
   new WOW().init();
 })();
 
-document.getElementById('submit').addEventListener('click', function(event) {
-    const isMobile = navigator.userAgentData.mobile;
-    const platform = navigator.userAgent;
-    console.log(isMobile);
-    console.log(platform);
-    //if(platform.mobile)
-    {
-      //getLinkWhastapp(number, message);
-      getLinkWhastapp("919427254481", "Hello, This is just a testing whatsapp.");
-    }
-    // else
-    // {
-    //   // composeEmail(recipient, subject, body);
-    //   composeEmail("dhavalraval86@gmail.com", "Testing", "Hello, This is just a testing mail.");
-    // }
-    //alert('Button clicked, but default action was stopped!');
-    // Add your custom JavaScript logic here
-});
 
+function sendWhatsApp() {
+    var phoneNumber = "919427254481"; // Replace with the recipient's number
+    var message = "Hello, I visited your website, and I want to know more about your services.";
+    // Encode the message
+    var encodedMessage = encodeURIComponent(message);
+    console.log(encodedMessage);
+    
+    var url = "https://wa.me/" + phoneNumber + "?text=" + encodedMessage;
 
-//Creates and sends mail
-function composeEmail(recipient, subject, body) {
-  const mailtoUrl = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  
-  // Option 1: Set window location (may navigate away from current page)
-  window.location.href = mailtoUrl;
-
-  // Option 2: Dynamically create and click a link (keeps current page open)
-  // var mail = document.createElement("a");
-  // mail.href = mailtoUrl;
-  // mail.click();
-}
-
-
-//Creates whatsapp link and opens whatsapp
-function getLinkWhastapp(number, message) {
-  var url = 'https://api.whatsapp.com/send?phone=' 
-     + number 
-     + '&text=' 
-     + encodeURIComponent(message)
-
-  return url
+    // Open the link in a new window/tab
+    window.open(url, '_blank').focus();
 }
 
 
@@ -158,3 +128,9 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 function clearFormFields(){
   document.getElementById("contactForm").reset();
 }
+
+document.getElementById('sendWhatsapp').addEventListener('click', function(event) {
+    event.preventDefault(); // required and important
+    sendWhatsApp();
+    //getLinkWhastapp("919427254481", "Hello, This is just a testing whatsapp.");
+});
